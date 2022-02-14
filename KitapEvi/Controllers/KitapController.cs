@@ -30,6 +30,8 @@ namespace KitapEvi.Controllers
             //1.Yol Son
             //2.Yol
             List<Kitap> kList = _db.Kitaplar.Include(x =>x.Yayinevi).ToList();
+            kList = _db.Kitaplar.Include(x=> x.Kategori).ToList();
+            
             //iligili alanlara innerjoin yaparak  getirir
 
             return View(kList);

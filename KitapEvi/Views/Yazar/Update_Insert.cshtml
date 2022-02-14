@@ -1,0 +1,84 @@
+﻿@model KitapEvi_Models.Models.Yazar
+@{
+    var title = "Yazar Oluştur";
+}
+<form method="post">
+
+
+    <div class="row p-3 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="YazarID" />
+        @if (Model.YazarID != 0)
+        {
+            title = "Yazar Düzenle";
+        }
+
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">@title</h2>
+        </div>
+
+
+        <div class="col-12 pt-4">
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="YazarAdi"></label>
+                </div>
+                <div class="col-12">
+                    <input asp-for="YazarAdi" class="form-control" />
+                    <span asp-validation-for="YazarAdi" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="YazarSoyadi"></label>
+                </div>
+                <div class="col-12">
+                    <input asp-for="YazarSoyadi" class="form-control" />
+                    <span asp-validation-for="YazarSoyadi" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="YazarLokasyon"></label>
+                </div>
+                <div class="col-12">
+                    <input asp-for="YazarLokasyon" class="form-control" />
+                    <span asp-validation-for="YazarLokasyon" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="YazarDogumTarihi"></label>
+                </div>
+                <div class="col-12">
+                    <input asp-for="YazarDogumTarihi" class="form-control" />
+                    <span asp-validation-for="YazarDogumTarihi" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class="col-4 offset-4">
+                    @if (Model.YazarID != 0)
+                    {
+                        <button type="submit" class="btn btn-primary form-control">Güncelle</button>
+                    }
+                    else
+                    {
+                <button type="submit" class="btn btn-primary form-control">Yazar Oluştur</button>
+
+                    }
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Listeye Geri Dön</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</form>
+
+
+
